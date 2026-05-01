@@ -2,6 +2,13 @@
 #include "Graph.h"
 using namespace std;
 
+    const std::map<int, User>& Graph::getUsers() const{
+        return users;
+    }
+    const std::map<int, std::vector<int>>& Graph::getAdjList() const{
+        return adjList;
+    }
+
 //Adds new User to Graph
 bool Graph::addUser(int id, string name){
     if (users.count(id)){
