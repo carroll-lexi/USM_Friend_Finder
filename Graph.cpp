@@ -17,6 +17,7 @@ bool Graph::addFriendship(int id1, int id2){
     if (users.find(id1) == users.end() || users.find(id2) == users.end()){
         return false;
    }
+
     adjList[id1].push_back(id2);
     adjList[id2].push_back(id1);   
 	return true;
