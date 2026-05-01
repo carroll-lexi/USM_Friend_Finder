@@ -18,20 +18,40 @@ bool Graph::addFriendship(int id1, int id2){
         return false;
    }
 
+    //prevent duplicate friendships
+    for (int duplicate: adjList[id1]){
+        if (duplicate == id2) {
+            return false;
+        }
+    }
+
+    //prevents friendships with self
+    if (id1 == id2){
+        return false;
+    }
+
     adjList[id1].push_back(id2);
     adjList[id2].push_back(id1);   
 	return true;
 }
 
 void Graph::printFriends(int id){
-    if (adjList.find(id) == adjList.end()){
-        cout << "User not found /n";
+    if (users.find(id) == users.end()){
+        cout << "User not found \n";
         return;
     }
-    else{
-        cout << "Friends of " << users[id].name << ": " << endl;
-        for (int friendID : adjList[id]){
-            cout << users[friendID].name << "(ID: " << friendID << ")" << endl;
-        }
+
+    cout << "Friends of " << users[id].name
+    << ": \n";
+    cout << "-----------------------------\n" << endl;
+
+    if (adjList[id].empty()){
+        cout << "No connections found.\n" << endl;
+        return;
+    }
+
+    for (int friendID : adjList[id]){
+        cout << users[friendID].name << "(ID: " 
+        << friendID << ")" << endl;
     }
 }
