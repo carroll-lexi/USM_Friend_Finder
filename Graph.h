@@ -22,6 +22,10 @@ public:
     bool removeFriendship(int id1, int id2);
 
     bool editUsername(int idNum, std::string userName);
+
+    bool findConnection(int id1, int id2);
+
+    void printAllUsers();
 };
 
 #endif

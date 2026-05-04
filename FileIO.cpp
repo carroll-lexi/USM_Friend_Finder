@@ -13,7 +13,7 @@ void saveToFile(Graph& g, const std::string& filename){
 
     //Save users
     for (const auto& pair : g.getUsers()){
-        file << "USER" << pair.second.id << " " << pair.second.name << "\n";
+        file << "USER " << pair.second.id << " " << pair.second.name << "\n";
     }
     //Save friendships
     for(const auto& pair : g.getAdjList()){
