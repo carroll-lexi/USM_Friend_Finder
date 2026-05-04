@@ -1,6 +1,6 @@
-USER1 Lexi Carroll
-USER2 Toby Holekamp
-USER3 Valencia Watson
+USER 1 Lexi Carroll
+USER 2 Toby Holekamp
+USER 3 Valencia Watson
 EDGE 1 2
 EDGE 1 3
 EDGE 2 3

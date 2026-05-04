@@ -1,6 +1,6 @@
 # USM_Friend_Finder
 
-**Author:** Team Friend Finder, Group S02G4: Lexi Carroll, Toby Holekamp, Valencia Watson
+**Author:** Team Friend Finder, Group S02G4: Lexi Carroll, Toby (Tawnie) Holekamp, Valencia Watson
 
 **Course:** CSC 307 H002
 
@@ -14,11 +14,9 @@
 
 Before running this project, ensure your system meets the following requirements: 
 
-* **Operating System:** (e.g., Windows 11, Ubuntu 22.04, macOS Sonoma) 
+* **Operating System:** Windows 7 or later, Linux with glibc 2.12 or newer, macOS 15.2
 
-* **Compiler:** (e.g., GCC 11.0+, Clang 15, or MSVC 2022) 
-
-* **Build System:** (e.g., CMake 3.20+, Make, or a specific IDE project file) 
+* **Compiler:** MSYS2 UCRT64, GCC
 
  
 
@@ -26,9 +24,7 @@ Before running this project, ensure your system meets the following requirements
 
 List any external frameworks used: 
 
-* **[Library Name, e.g., SFML 2.5]**: [Purpose, e.g., GUI and Graphics] 
-
-* **[Library Name, e.g., SQLite3]**: [Purpose, e.g., Database management] 
+No external frameworks used
 
  
 
@@ -60,17 +56,13 @@ How do I compile the source code? Provide the exact commands.
 
 **Using Command Line:** 
 
-\`\`\`bash 
+\`\`\`
 
-mkdir build 
+cd [directory]
 
-cd build 
+g++ main.cpp Graph.cpp FileIO.cpp -o main.exe+
 
-cmake .. 
-
-make 
-
-\`\`\` 
+\`\`\`
 
  
 
@@ -92,7 +84,7 @@ make
 
 Once built, how is the program started? 
 
-* **Executable Name:** `bin/MyProject.exe` 
+* **Executable Name:** `bin/main.exe` 
 
 * **Entry Point:** Explain if there are command-line arguments required (e.g., `./MyProject --debug`). 
 
