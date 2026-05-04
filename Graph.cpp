@@ -13,6 +13,20 @@ using namespace std;
         return adjList;
     }
 
+//Helper function: removes spaces from names for storage
+string Graph::removeSpacesFromName(string name){
+    int nameLength = name.length();
+    int nonspace = 0;
+    
+    for (int count = 0; count < nameLength; count++){
+        if (name[count] != ' '){
+            name[nonspace] = name[count];
+            nonspace++;
+        }
+    }
+    return name.substr(0, nonspace);
+}
+
 //Adds new User to Graph
 bool Graph::addUser(int id, string name){
     if (users.count(id)){
