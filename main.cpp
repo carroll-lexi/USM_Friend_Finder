@@ -21,7 +21,7 @@ int main() {
         cout << "6.  Delete User" << endl;
         cout << "7.  Remove Friendship" << endl;
         cout << "8.  Edit Username" << endl;
-        cout << "9.  Find Connections Between Users" << endl;
+        cout << "9.  Find Mutual Friends" << endl;
         cout << "10. Display All Users" << endl;
         cout << "11. Exit\n" << endl;
         cout << "Enter your choice: ";
@@ -48,19 +48,19 @@ int main() {
             if (cin.fail()){
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(),'\n');
-                cout << "Invalid ID. ID must be numerical.\n" << endl;
+                cout << "\nInvalid ID. ID must be numerical.\n" << endl;
                 continue;
             }
 
-            cin.ignore();
-            cout << "\nEnter name: ";
+            cin.ignore(1000, '\n');
+            cout << "\nEnter name (No spaces): ";
             getline(cin, name);
             cout << "" << endl;
             if(g.addUser(id, name)){
                 cout << "User Added" << endl;
             }
             else{
-                cout << "Error: User already added\n" << endl;
+                cout << "Error: User not added\n" << endl;
             }
         }
 
@@ -72,7 +72,7 @@ int main() {
             if (cin.fail()){
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(),'\n');
-                cout << "Invalid ID. ID must be numerical.\n" << endl;
+                cout << "\nInvalid ID. ID must be numerical.\n" << endl;
                 continue;
             }
             cout << "Enter second user ID: ";
@@ -80,8 +80,8 @@ int main() {
 
             if (cin.fail()){
                 cin.clear();
-                cin.ignore(1000,'\n');
-                cout << "Invalid ID. ID must be numerical.\n" << endl;
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout << "\nInvalid ID. ID must be numerical.\n" << endl;
                 continue;
             }
 
@@ -101,7 +101,7 @@ int main() {
             if (cin.fail()){
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(),'\n');
-                cout << "Invalid ID. ID must be numerical.\n" << endl;
+                cout << "\nInvalid ID. ID must be numerical.\n" << endl;
                 continue;
             }
 
@@ -110,12 +110,12 @@ int main() {
 
         else if (option == 4){
             saveToFile(g, "data.txt");
-            cout << "Data saved successfully\n";
+            cout << "\nData saved successfully\n";
         }
 
         else if (option == 5){
             loadFromFile(g, "data.txt");
-            cout << "Data loaded successfully\n";
+            cout << "\nData found and loaded \n";
         }
 
         else if (option == 6){
@@ -126,7 +126,7 @@ int main() {
             if (cin.fail()){
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(),'\n');
-                cout << "Invalid ID. ID must be numerical.\n" << endl;
+                cout << "\nInvalid ID. ID must be numerical.\n" << endl;
                 continue;
             }
 
@@ -135,7 +135,7 @@ int main() {
                 cout << "User Removed" << endl;
             }
             else{
-                cout << "Error: User not found\n" << endl;
+                cout << "Error: User not removed\n" << endl;
             }
         }
         else if (option == 7){
@@ -146,7 +146,7 @@ int main() {
             if (cin.fail()){
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(),'\n');
-                cout << "Invalid ID. ID must be numerical.\n" << endl;
+                cout << "\nInvalid ID. ID must be numerical.\n" << endl;
                 continue;
             }
             cout << "Enter second user ID: ";
@@ -154,8 +154,8 @@ int main() {
 
             if (cin.fail()){
                 cin.clear();
-                cin.ignore(1000,'\n');
-                cout << "Invalid ID. ID must be numerical.\n" << endl;
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout << "\nInvalid ID. ID must be numerical.\n" << endl;
                 continue;
             }
 
@@ -177,11 +177,11 @@ int main() {
             if (cin.fail()){
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(),'\n');
-                cout << "Invalid ID. ID must be numerical.\n" << endl;
+                cout << "\nInvalid ID. ID must be numerical.\n" << endl;
                 continue;
             }
 
-            cin.ignore();
+            cin.ignore(1000, '\n');
 
             cout << "\nEnter name: ";
             getline(cin, name);
@@ -191,7 +191,7 @@ int main() {
                 cout << "Username Updated" << endl;
             }
             else{
-                cout << "Error: User not found\n" << endl;
+                cout << "Error: Username not updated\n" << endl;
             }
         }
 
@@ -203,18 +203,20 @@ int main() {
             if (cin.fail()){
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(),'\n');
-                cout << "Invalid ID. ID must be numerical.\n" << endl;
+                cout << "\nInvalid ID. ID must be numerical.\n" << endl;
                 continue;
             }
+            cin.ignore(1000, '\n');
             cout << "Enter second user ID: ";
             cin >> id2;
 
             if (cin.fail()){
                 cin.clear();
-                cin.ignore(1000,'\n');
-                cout << "Invalid ID. ID must be numerical.\n" << endl;
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout << "\nInvalid ID. ID must be numerical.\n" << endl;
                 continue;
             }
+            cin.ignore(1000, '\n');
 
         cout << "\n";
         g.findConnection(id1,id2);
@@ -228,9 +230,9 @@ int main() {
         }
 
         else {
-           cout << "Choice not valid. Please choose a valid option\n" << endl; 
+           cout << "\nChoice not valid. Please choose a valid option\n" << endl; 
         }
     }
-    cout << "Now exiting program" << endl;
+    cout << "\nExiting program..." << endl;
     return 0;
 }

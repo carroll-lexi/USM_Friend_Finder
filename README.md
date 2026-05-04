@@ -1,6 +1,6 @@
 # USM_Friend_Finder
 
-**Author:** Team Friend Finder, Group S02G4: Lexi Carroll, Toby (Tawnie) Holekamp, Valencia Watson
+**Author:** Team Friend Finder, Group S02G4: Lexi Carroll, Toby (Tawnie) Holekamp, Valencia Watson 
 
 **Course:** CSC 307 H002
 
@@ -79,5 +79,7 @@ g++ main.cpp Graph.cpp FileIO.cpp -o main.exe
 ## 5. Troubleshooting / Known Issues 
 
 * All source files must be in the same directory when compiling
+* Text file must be loaded first to use stored data - if text file is not loaded first, the program will not be able to access old data, and the data may be overwritten upon save
+* This program does not allow spaces in user names - if names with spaces are entered, they will show normally temporarily, but will shorten to only the first name upon save and reload
 * If compilation fails, ensure that g++ is installed and added to PATH
 * File loading requires the saved data file to be in the same directory as the executable
