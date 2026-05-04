@@ -1,3 +1,4 @@
-USER 1 Jane
 USER 2 John
-EDGE 1 2
+USER 3 Johnny
+USER 4 Sarah
+EDGE 2 4
