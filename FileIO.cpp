@@ -13,7 +13,7 @@ void saveToFile(Graph& g, const std::string& filename){
 
     //Save users
     for (const auto& pair : g.getUsers()){
-        file << "USER" << pair.second.id << " " << pair.second.name << "\n";
+        file << "USER " << pair.second.id << " " << pair.second.name << "\n";
     }
     //Save friendships
     for(const auto& pair : g.getAdjList()){
@@ -37,17 +37,41 @@ void loadFromFile(Graph& g, const std::string& filename){
 
     //Load users
     while (file >> dataType){
+        /* if (file.fail()){
+            continue;
+        } */
+
         if (dataType == "USER"){
             int id;
             string name;
-            file >> id >> name;
+
+            // file >> id >> name;
+        
+            if (!(file >> id >> name)){
+                file.clear();
+                file.ignore(1000, '\n');
+                continue;
+            }
+            /*if (id.empty()){
+                continue;
+            }
+            if (name.empty()){
+                continue;
+            }
+            */
 
             g.addUser(id, name);
         }
         //Load friendships
         else if (dataType == "EDGE"){
             int id1, id2;
-            file >> id1 >> id2;
+            // file >> id1 >> id2;
+
+            if (!(file >> id1 >> id2)){
+                file.clear();
+                file.ignore(1000, '\n');
+                continue;
+            }
 
             g.addFriendship(id1, id2);
         }

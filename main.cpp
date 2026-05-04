@@ -13,15 +13,17 @@ int main() {
         cout << "\nUSM Friend Finder" << endl;
             cout << "-----------------------------\n" << endl;
         cout << "Options: " << endl;
-        cout << "1. Add User" << endl;
-        cout << "2. Add Friendship" << endl;
-        cout << "3. Show Connections" << endl;
-        cout << "4. Save Data" << endl;
-        cout << "5. Load Data" << endl;
-        cout << "6. Delete User" << endl;
-        cout << "7. Remove Friendship" << endl;
-        cout << "8. Edit Username" << endl;
-        cout << "9. Exit\n" << endl;
+        cout << "1.  Add User" << endl;
+        cout << "2.  Add Friendship" << endl;
+        cout << "3.  Show Connections" << endl;
+        cout << "4.  Save Data" << endl;
+        cout << "5.  Load Data" << endl;
+        cout << "6.  Delete User" << endl;
+        cout << "7.  Remove Friendship" << endl;
+        cout << "8.  Edit Username" << endl;
+        cout << "9.  Find Connections Between Users" << endl;
+        cout << "10. Display All Users" << endl;
+        cout << "11. Exit\n" << endl;
         cout << "Enter your choice: ";
         cin >> option;
         cout << "\n";
@@ -32,7 +34,7 @@ int main() {
             continue;
         }
 
-        if (option == 9){
+        if (option == 11){
             break;
         }
 
@@ -191,6 +193,38 @@ int main() {
             else{
                 cout << "Error: User not found\n" << endl;
             }
+        }
+
+        else if (option == 9){
+             int id1, id2;
+            cout << "Enter first user ID: ";
+            cin >> id1;
+
+            if (cin.fail()){
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout << "Invalid ID. ID must be numerical.\n" << endl;
+                continue;
+            }
+            cout << "Enter second user ID: ";
+            cin >> id2;
+
+            if (cin.fail()){
+                cin.clear();
+                cin.ignore(1000,'\n');
+                cout << "Invalid ID. ID must be numerical.\n" << endl;
+                continue;
+            }
+
+        cout << "\n";
+        g.findConnection(id1,id2);
+        cout << "\n";
+        }
+
+        else if (option == 10){
+            cout << "\n";
+            g.printAllUsers();
+            cout << "\n";
         }
 
         else {

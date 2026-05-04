@@ -8,92 +8,76 @@
 
 --- 
 
- 
-
 ## 1. Prerequisites & Environment 
 
 Before running this project, ensure your system meets the following requirements: 
 
-* **Operating System:** Windows 7 or later, Linux with glibc 2.12 or newer, macOS 15.2
+* **Operating System:** Windows 7 or later, Linux with glibc 2.12 or newer, macOS 15.2+
 
-* **Compiler:** MSYS2 UCRT64, GCC
+* **Compiler:** g++ (MSYS2 UCRT64), C++17 or newer
 
  
-
 ### Required Libraries 
-
-List any external frameworks used: 
-
 No external frameworks used
 
- 
+Only Standard C++ Libraries Used:
+- <iostream>
+- <vector>
+- <map>
+- <queue>
+- <fstream>
+- <sstream>
+- <algorithm>
+- <string>
 
 --- 
-
- 
 
 ## 2. Installation & Setup 
 
-Provide step-by-step instructions on how to install dependencies. 
+1. Clone the repo: `git clone https://github.com/carroll-lexi/USM_Friend_Finder.git`
 
-1. Download/Install [Library Name] from [Link]. 
+2. Navigate into the project directory.
 
-2. Set Environment Variables (if applicable): `PATH` should include `...` 
-
-3. (Optional) Clone the repo: `git clone [URL]` 
-
- 
+3. Ensure all .cpp and .h files are in the same folder
 
 --- 
 
- 
-
 ## 3. Build Instructions 
-
-How do I compile the source code? Provide the exact commands. 
-
- 
-
 **Using Command Line:** 
 
-\`\`\`
+cd [project_directory]
 
-cd [directory]
+g++ main.cpp Graph.cpp FileIO.cpp -o main.exe
 
-g++ main.cpp Graph.cpp FileIO.cpp -o main.exe+
-
-\`\`\`
-
- 
 
 **Using IDE:** 
 
-* Open `ProjectName.sln` in Visual Studio 2022. 
+* Open Visual Studio 2022. 
+
+* Create a new Empty C++ Project
+
+* Add all .cpp and .h files to the project
 
 * Set the build configuration to **Release / x64**. 
 
 * Press `Ctrl+Shift+B` to build. 
 
- 
+* Run the program using Local Windows Debugger
 
 --- 
 
- 
-
 ## 4. Execution Guide 
 
-Once built, how is the program started? 
+* **Executable Name:** `main.exe` 
 
-* **Executable Name:** `bin/main.exe` 
+* **Entry Point:** No command-line arguments required
 
-* **Entry Point:** Explain if there are command-line arguments required (e.g., `./MyProject --debug`). 
-
-* **Assets:** Note if the executable must be run from a specific directory to find images/fonts. 
-
- 
+* **Assets:** No specific directory needed to run executables.
 
 --- 
 
 ## 5. Troubleshooting / Known Issues 
 
-* [Insert]
+* All source files must be in the same directory when compiling
+* If compilation fails, ensure that g++ is installed and added to PATH
+* File loading requires the saved data file to be in the same directory as the executable

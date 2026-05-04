@@ -1,5 +1,8 @@
 #include <iostream>
 #include <algorithm>
+#include <queue>
+#include <map>
+#include <vector>
 #include "Graph.h"
 using namespace std;
 
@@ -73,7 +76,7 @@ void Graph::printFriends(int id){
     }
 
     for (int friendID : adjList[id]){
-        cout << users[friendID].name << "(ID: " 
+        cout << users[friendID].name << " (ID: " 
         << friendID << ")" << endl;
     }
 }
@@ -122,4 +125,79 @@ bool Graph::editUsername(int idNum, std::string userName){
 
    users[idNum].name = userName;
    return true;
+}
+
+//Find Connection between two users
+bool Graph::findConnection(int id1, int id2){
+    if (users.find(id1) == users.end() || users.find(id2) == users.end()){
+        cout << "One or both users not found" << endl;
+        return false;
+   }
+
+   std::queue<int> q;
+   std::map<int, bool> connection;
+   std::map<int, int> parent;
+
+   q.push(id1);
+   connection[id1] = true;
+   parent[id1] = -1;
+
+   while (!q.empty()){
+    int current = q.front();
+    q.pop();
+
+    if (current == id2){
+        std::vector<int> path;
+        int temp = id2;
+
+        while (temp != -1){
+            path.push_back(temp);
+            temp = parent[temp];
+        }
+
+        std::reverse(path.begin(), path.end());
+
+        cout << "Path between connections:\n";
+        cout << "-----------------------------\n" << endl;
+
+        for (size_t i = 0; i < path.size(); i++){
+            int id = path[i];
+            
+            cout << users[id].name << " (ID: " << id << ") ";
+           
+            if (i != path.size() - 1){
+                cout << " -> ";
+            }
+        }
+        cout << "\n";
+
+        return true;
+    }
+
+    for (int neighbor: adjList[current]){
+        if (!connection[neighbor]){
+            connection[neighbor] = true;
+            parent[neighbor] = current;
+            q.push(neighbor);
+        }
+    }
+   }
+   std::cout << "No connection found between " << users[id1].name << " and " << users[id2].name << "."<< endl;
+   return false; 
+}
+
+//Print all users
+void Graph::printAllUsers(){
+    if (users.empty()){
+        cout << "No users found.\n" << endl;
+        return;
+    }
+
+    cout << "All Users: \n";
+    cout << "-----------------------------\n" << endl;
+
+    for (const auto& pair : users){
+        cout << "Name: " << pair.second.name <<
+         " (ID: " << pair.first << ")" << endl;
+    }
 }
