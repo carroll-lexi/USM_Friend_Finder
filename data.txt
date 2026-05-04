@@ -1,6 +1,8 @@
 USER1 Lexi Carroll
 USER2 Toby Holekamp
 USER3 Valencia Watson
+USER4 Dummy1
+USER5 Dummy2
 EDGE 1 2
 EDGE 1 3
 EDGE 2 3
