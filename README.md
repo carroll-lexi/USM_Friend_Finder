@@ -20,7 +20,15 @@ Before running this project, ensure your system meets the following requirements
 ### Required Libraries 
 No external frameworks used
 
-Only Standard C++ Libraries Used: <iostream>, <vector>, <map>, <queue>, <fstream>, <sstream>, <algorithm>, <string>
+Only Standard C++ Libraries Used: 
+- iostream
+- vector
+- map
+- queue
+- fstream
+- sstream
+- algorithm
+- string
 
 --- 
 
