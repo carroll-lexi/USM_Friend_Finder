@@ -14,6 +14,7 @@ public:
     const std::map<int, User>& getUsers() const;
     const std::map<int, std::vector<int>>& getAdjList() const;
 
+    std::string removeSpacesFromName(std::string name);
     bool addUser(int id, std::string name);
     bool addFriendship(int id1, int id2);
     void printFriends(int id);
