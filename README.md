@@ -1,4 +1,4 @@
-# USM_Friend_Finder 
+# USM_Friend_Finder
 
 **Author:** Team Friend Finder, Group S02G4: Lexi Carroll, Toby (Tawnie) Holekamp, Valencia Watson
 
